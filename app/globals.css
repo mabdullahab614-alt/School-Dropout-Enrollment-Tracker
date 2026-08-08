@@ -1,0 +1,71 @@
+@import "tailwindcss";
+
+:root {
+  --bg: #f0f4ee;
+  --bg-alt: #e6ede2;
+  --card: #ffffff;
+  --ink: #1f2a22;
+  --ink-soft: #52604f;
+  --primary: #1b6b4a;
+  --primary-dark: #10412c;
+  --accent: #d98e2b;
+  --alert: #ab4a35;
+  --line: #d2ddc9;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: -apple-system, "Segoe UI", "IBM Plex Sans", Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+.font-display {
+  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
+  color: var(--ink);
+  letter-spacing: -0.01em;
+}
+
+.font-mono {
+  font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, monospace;
+}
+
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.divider {
+  border-top: 1px dashed var(--line);
+}
+
+a {
+  color: var(--primary);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+::selection {
+  background: var(--accent);
+  color: white;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
