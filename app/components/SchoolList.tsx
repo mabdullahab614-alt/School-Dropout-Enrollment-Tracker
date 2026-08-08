@@ -17,7 +17,7 @@ export default function SchoolList({ schools }: { schools: School[] }) {
       initial={{ opacity: 0, y: 16 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.4, ease: "easeOut" }}
-      className="card p-5"
+      className="card card-schools p-5"
     >
       <p className="text-xs uppercase tracking-wide mb-3" style={{ color: "var(--ink-soft)" }}>
         Nearby schools
