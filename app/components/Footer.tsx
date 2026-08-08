@@ -1,5 +1,4 @@
 import Link from "next/link";
-
 export default function Footer() {
   return (
     <footer
@@ -36,7 +35,6 @@ export default function Footer() {
               View source on GitHub
             </a>
           </div>
-
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: "#ffffff" }}>
               Quick links
@@ -47,37 +45,35 @@ export default function Footer() {
               <li><Link href="/#sources" className="hover:text-white transition-colors">Data sources</Link></li>
             </ul>
           </div>
-
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: "#ffffff" }}>
               About this project
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: "#a3ada3" }}>
-  Figures sourced from{" "}
-  
-    href="https://data.unicef.org/country/pak/"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="underline hover:text-white transition-colors"
-  >
-    UNICEF Pakistan
-  </a>{" "}
-  and the{" "}
-  
-    href="https://www.pbs.gov.pk/content/household-integrated-economic-survey-hies"
-    target="_blank"
-    rel="noopener noreferrer"
-    className="underline hover:text-white transition-colors"
-  >
-    Pakistan Bureau of Statistics (HIES 2024–25)
-  </a>
-  . School listings are illustrative for this MVP and will be
-  replaced with verified EMIS data.
-</p>
+              Figures sourced from{" "}
+              <a
+                href="https://data.unicef.org/country/pak/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white transition-colors"
+              >
+                UNICEF Pakistan
+              </a>{" "}
+              and the{" "}
+              <a
+                href="https://www.pbs.gov.pk/content/household-integrated-economic-survey-hies"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="underline hover:text-white transition-colors"
+              >
+                Pakistan Bureau of Statistics (HIES 2024–25)
+              </a>
+              . School listings are illustrative for this MVP and will be
+              replaced with verified EMIS data.
+            </p>
           </div>
         </div>
       </div>
-
       <div className="border-t" style={{ borderColor: "rgba(255,255,255,0.08)" }}>
         <div
           className="max-w-5xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
