@@ -1,23 +1,18 @@
 "use client";
-
 import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { motion, type Variants } from "framer-motion";
 import Link from "next/link";
-
-const container = {
+const container: Variants = {
   hidden: {},
   show: { transition: { staggerChildren: 0.12 } },
 };
-
-const item = {
+const item: Variants = {
   hidden: { opacity: 0, y: 14 },
   show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
 };
-
 export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number }) {
   const target = totalOutOfSchool / 1_000_000;
   const [count, setCount] = useState(0);
-
   useEffect(() => {
     let frame: number;
     const duration = 1100;
@@ -31,7 +26,6 @@ export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number })
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
   }, [target]);
-
   return (
     <motion.section
       variants={container}
