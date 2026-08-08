@@ -1,71 +1,29 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #f0f4ee;
-  --bg-alt: #e6ede2;
-  --card: #ffffff;
-  --ink: #1f2a22;
-  --ink-soft: #52604f;
-  --primary: #1b6b4a;
-  --primary-dark: #10412c;
-  --accent: #d98e2b;
-  --alert: #ab4a35;
-  --line: #d2ddc9;
+  color-scheme: light;
+  --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
-* {
-  box-sizing: border-box;
+[data-theme="dark"] {
+  color-scheme: dark;
+  --primary: #4ade80;
+  --primary-dark: #22c55e;
+  --accent: #fb923c;
+  --alert: #f87171;
+  --ink: #f1f5f0;
+  --ink-soft: #a3ada3;
+  --bg: #0f1410;
+  --bg-alt: #1a221a;
+  --line: #2a332a;
 }
 
-html,
 body {
-  background: var(--bg);
-  color: var(--ink);
-  font-family: -apple-system, "Segoe UI", "IBM Plex Sans", Arial, sans-serif;
-  margin: 0;
-  padding: 0;
-}
-
-h1,
-h2,
-h3,
-.font-display {
-  font-family: Georgia, "Iowan Old Style", "Times New Roman", serif;
-  color: var(--ink);
-  letter-spacing: -0.01em;
-}
-
-.font-mono {
-  font-family: ui-monospace, "SFMono-Regular", "IBM Plex Mono", Menlo, monospace;
+  background: var(--bg, #ffffff);
+  color: var(--ink, #1a1a1a);
+  transition: var(--transition-theme);
 }
 
 .card {
-  background: var(--card);
-  border: 1px solid var(--line);
-  border-radius: 10px;
-}
-
-.divider {
-  border-top: 1px dashed var(--line);
-}
-
-a {
-  color: var(--primary);
-}
-
-button {
-  font-family: inherit;
-  cursor: pointer;
-}
-
-::selection {
-  background: var(--accent);
-  color: white;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  * {
-    animation: none !important;
-    transition: none !important;
-  }
+  transition: var(--transition-theme);
 }
