@@ -1,9 +1,7 @@
 @import "tailwindcss";
-
 :root {
   color-scheme: light;
   --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-
   --trust: #2563eb;
   --primary: #16a34a;
   --primary-dark: #15803d;
@@ -17,7 +15,6 @@
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
   --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--line);
 }
-
 [data-theme="dark"] {
   color-scheme: dark;
   --trust: #60a5fa;
@@ -33,13 +30,11 @@
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(74, 222, 128, 0.04);
   --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(74, 222, 128, 0.15);
 }
-
 body {
   background: var(--bg, #ffffff);
   color: var(--ink, #1a1a1a);
   transition: var(--transition-theme);
 }
-
 /* Cards: subtle 3D tilt + lift on hover — depth signals importance/interactivity */
 .card {
   background: var(--bg-alt);
@@ -50,22 +45,18 @@ body {
   transform-style: preserve-3d;
   will-change: transform;
 }
-
 .card:hover {
   transform: perspective(900px) rotateX(1.2deg) translateY(-5px);
   box-shadow: var(--card-shadow-hover);
 }
-
 .divider {
   border-bottom: 1px solid var(--line);
 }
-
 .nav-link {
   position: relative;
   color: var(--ink);
   transition: opacity 0.2s ease;
 }
-
 .nav-link::after {
   content: "";
   position: absolute;
@@ -76,18 +67,15 @@ body {
   background: var(--primary);
   transition: width 0.25s ease;
 }
-
 .nav-link:hover::after {
   width: 100%;
 }
-
 /* Buttons: click feedback (scale + ripple flash) — reduces uncertainty, feels responsive */
 .btn {
   position: relative;
   overflow: hidden;
   transition: transform 0.15s ease, box-shadow 0.25s ease, filter 0.2s ease;
 }
-
 .btn::after {
   content: "";
   position: absolute;
@@ -101,24 +89,20 @@ body {
   pointer-events: none;
   transition: transform 0.5s ease, opacity 0.7s ease;
 }
-
 .btn:hover {
   filter: brightness(1.08);
   box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
   transform: translateY(-1px);
 }
-
 .btn:active {
   transform: scale(0.95) translateY(0);
   filter: brightness(0.95);
 }
-
 .btn:active::after {
   transform: scale(3);
   opacity: 1;
   transition: 0s;
 }
-
 /* Slow pulsing glow for high-risk stats only — urgency without alarm-fatigue */
 @keyframes pulseGlow {
   0%, 100% {
@@ -127,7 +111,12 @@ body {
   50% {
     box-shadow: 0 0 0 7px rgba(220, 38, 38, 0);
   }
-  /* Fix: native select dropdown contrast in dark mode */
+}
+.pulse-alert {
+  animation: pulseGlow 2.4s ease-in-out infinite;
+}
+
+/* Fix: native select dropdown contrast in dark mode */
 select {
   background: var(--bg-alt);
   color: var(--ink);
@@ -161,9 +150,4 @@ select option {
 [data-theme="dark"] .card-flag {
   background: var(--bg-alt);
   border-color: var(--line);
-}
-}
-
-.pulse-alert {
-  animation: pulseGlow 2.4s ease-in-out infinite;
 }
