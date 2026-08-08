@@ -4,6 +4,7 @@
   color-scheme: light;
   --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 
+  --trust: #2563eb;
   --primary: #16a34a;
   --primary-dark: #15803d;
   --accent: #ea580c;
@@ -14,10 +15,12 @@
   --bg-alt: #f5f6f4;
   --line: #e3e6e1;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.12), 0 0 0 1px var(--line);
 }
 
 [data-theme="dark"] {
   color-scheme: dark;
+  --trust: #60a5fa;
   --primary: #4ade80;
   --primary-dark: #22c55e;
   --accent: #fb923c;
@@ -28,6 +31,7 @@
   --bg-alt: #1a221a;
   --line: #2a332a;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(74, 222, 128, 0.04);
+  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(74, 222, 128, 0.15);
 }
 
 body {
@@ -36,12 +40,20 @@ body {
   transition: var(--transition-theme);
 }
 
+/* Cards: subtle 3D tilt + lift on hover — depth signals importance/interactivity */
 .card {
   background: var(--bg-alt);
   border: 1px solid var(--line);
   border-radius: 16px;
   box-shadow: var(--card-shadow);
-  transition: var(--transition-theme);
+  transition: var(--transition-theme), transform 0.35s cubic-bezier(0.22, 1, 0.36, 1), box-shadow 0.35s ease;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.card:hover {
+  transform: perspective(900px) rotateX(1.2deg) translateY(-5px);
+  box-shadow: var(--card-shadow-hover);
 }
 
 .divider {
@@ -67,4 +79,56 @@ body {
 
 .nav-link:hover::after {
   width: 100%;
+}
+
+/* Buttons: click feedback (scale + ripple flash) — reduces uncertainty, feels responsive */
+.btn {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.15s ease, box-shadow 0.25s ease, filter 0.2s ease;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.55) 10%, transparent 10.5%);
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0;
+  transform: scale(0);
+  pointer-events: none;
+  transition: transform 0.5s ease, opacity 0.7s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.08);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
+  transform: translateY(-1px);
+}
+
+.btn:active {
+  transform: scale(0.95) translateY(0);
+  filter: brightness(0.95);
+}
+
+.btn:active::after {
+  transform: scale(3);
+  opacity: 1;
+  transition: 0s;
+}
+
+/* Slow pulsing glow for high-risk stats only — urgency without alarm-fatigue */
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.3);
+  }
+  50% {
+    box-shadow: 0 0 0 7px rgba(220, 38, 38, 0);
+  }
+}
+
+.pulse-alert {
+  animation: pulseGlow 2.4s ease-in-out infinite;
 }
