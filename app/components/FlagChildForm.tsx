@@ -36,7 +36,7 @@ export default function FlagChildForm({
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.4, ease: "easeOut" }}
-          className="card p-5"
+          className="card card-flag p-5"
           onSubmit={(e) => {
             e.preventDefault();
             setError(null);
