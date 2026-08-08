@@ -151,3 +151,15 @@ select option {
   background: var(--bg-alt);
   border-color: var(--line);
 }
+/* Live/green pulse for real-time activity indicators */
+@keyframes pulseLive {
+  0%, 100% {
+    box-shadow: 0 0 0 0 rgba(74, 222, 128, 0.5);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(74, 222, 128, 0);
+  }
+}
+.pulse-live {
+  animation: pulseLive 1.8s ease-in-out infinite;
+}
