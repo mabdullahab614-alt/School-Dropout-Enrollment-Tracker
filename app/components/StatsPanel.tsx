@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Province, District } from "@/app/lib/types";
 
 export default function StatsPanel({
@@ -8,7 +11,12 @@ export default function StatsPanel({
   district: District;
 }) {
   return (
-    <div className="card p-5">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="card p-5"
+    >
       <p className="text-xs uppercase tracking-wide" style={{ color: "var(--ink-soft)" }}>
         {province.name} &middot; {district.name}
       </p>
@@ -26,6 +34,6 @@ export default function StatsPanel({
           {(province.outOfSchoolChildren / 1_000_000).toFixed(1)}M children
         </span>
       </p>
-    </div>
+    </motion.div>
   );
 }
