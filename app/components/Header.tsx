@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function Header() {
   return (
@@ -11,6 +12,7 @@ export default function Header() {
           <Link href="/" className="hover:opacity-70">
             Home
           </Link>
+          <ThemeToggle />
           <Link
             href="/lookup"
             className="px-4 py-2 rounded-full text-sm font-medium"
