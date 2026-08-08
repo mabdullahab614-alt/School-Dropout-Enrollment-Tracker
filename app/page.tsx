@@ -1,6 +1,7 @@
 import Hero from "@/app/components/Hero";
 import StorySolution from "@/app/components/StorySolution";
 import ProvinceBar from "@/app/components/ProvinceBar";
+import JoinMovement from "@/app/components/JoinMovement";
 import { getProvinces } from "@/app/lib/data";
 export const dynamic = "force-dynamic";
 export default async function Home() {
@@ -24,6 +25,7 @@ export default async function Home() {
           </a>
         </p>
       </section>
+      <JoinMovement />
     </div>
   );
 }
