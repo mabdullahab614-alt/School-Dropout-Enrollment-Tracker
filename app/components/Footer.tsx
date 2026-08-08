@@ -29,7 +29,7 @@ export default function Footer() {
               out-of-school numbers for their district and find a nearby
               school to enroll a child.
             </p>
-            
+            <a
               href="https://github.com/mabdullahab614-alt/School-Dropout-Enrollment-Tracker"
               target="_blank"
               rel="noopener noreferrer"
