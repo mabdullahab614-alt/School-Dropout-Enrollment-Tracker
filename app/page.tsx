@@ -11,7 +11,7 @@ export default async function Home() {
   return (
     <div>
       <Hero totalOutOfSchool={total} />
-      <section className="max-w-5xl mx-auto px-6 pb-16">
+      <section id="sources" className="max-w-5xl mx-auto px-6 pb-16">
         <ProvinceBar provinces={provinces} />
         <p className="text-xs mt-3" style={{ color: "var(--ink-soft)" }}>
           Source: UNICEF Pakistan, Education overview, 2026
