@@ -53,10 +53,27 @@ export default function Footer() {
               About this project
             </h3>
             <p className="text-sm leading-relaxed" style={{ color: "#a3ada3" }}>
-              Figures sourced from UNICEF Pakistan and the Pakistan Bureau of
-              Statistics (HIES 2024–25). School listings are illustrative for
-              this MVP and will be replaced with verified EMIS data.
-            </p>
+  Figures sourced from{" "}
+  
+    href="https://data.unicef.org/country/pak/"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="underline hover:text-white transition-colors"
+  >
+    UNICEF Pakistan
+  </a>{" "}
+  and the{" "}
+  
+    href="https://www.pbs.gov.pk/content/household-integrated-economic-survey-hies"
+    target="_blank"
+    rel="noopener noreferrer"
+    className="underline hover:text-white transition-colors"
+  >
+    Pakistan Bureau of Statistics (HIES 2024–25)
+  </a>
+  . School listings are illustrative for this MVP and will be
+  replaced with verified EMIS data.
+</p>
           </div>
         </div>
       </div>
