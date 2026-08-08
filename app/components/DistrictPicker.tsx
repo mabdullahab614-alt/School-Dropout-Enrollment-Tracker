@@ -20,7 +20,7 @@ export default function DistrictPicker({
   const filtered = districts.filter((d) => d.provinceId === provinceId);
 
   return (
-    <div className="card p-5 flex flex-col sm:flex-row gap-4">
+    <div className="card card-picker p-5 flex flex-col sm:flex-row gap-4">
       <label className="flex-1 text-sm">
         <span className="block mb-1" style={{ color: "var(--ink-soft)" }}>
           Province
