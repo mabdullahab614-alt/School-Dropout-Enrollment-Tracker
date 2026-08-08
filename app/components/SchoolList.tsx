@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { School } from "@/app/lib/types";
 
 export default function SchoolList({ schools }: { schools: School[] }) {
@@ -10,7 +13,12 @@ export default function SchoolList({ schools }: { schools: School[] }) {
   }
 
   return (
-    <div className="card p-5">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="card p-5"
+    >
       <p className="text-xs uppercase tracking-wide mb-3" style={{ color: "var(--ink-soft)" }}>
         Nearby schools
       </p>
@@ -39,6 +47,6 @@ export default function SchoolList({ schools }: { schools: School[] }) {
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
