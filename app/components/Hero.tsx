@@ -15,11 +15,11 @@ export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number })
   const [count, setCount] = useState(0);
   useEffect(() => {
     let frame: number;
-    const duration = 1100;
+    const duration = 1600;
     const start = performance.now();
     const tick = (now: number) => {
       const progress = Math.min((now - start) / duration, 1);
-      const eased = 1 - Math.pow(1 - progress, 3);
+      const eased = 1 - Math.pow(1 - progress, 4);
       setCount(target * eased);
       if (progress < 1) frame = requestAnimationFrame(tick);
     };
@@ -31,22 +31,29 @@ export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number })
       variants={container}
       initial="hidden"
       animate="show"
-      className="max-w-5xl mx-auto px-6 pt-14 pb-10"
+      className="max-w-5xl mx-auto px-6 pt-14 pb-6"
     >
-      <motion.p
-        variants={item}
-        className="text-sm uppercase tracking-wide mb-3"
-        style={{ color: "var(--trust)" }}
-      >
-        Pakistan &middot; education access
-      </motion.p>
+      <motion.div variants={item} className="flex items-center gap-2 mb-3">
+        <span
+          className="w-2 h-2 rounded-full pulse-live"
+          style={{ background: "var(--primary)" }}
+        />
+        <p className="text-sm uppercase tracking-wide" style={{ color: "var(--trust)" }}>
+          Pakistan &middot; education access
+        </p>
+      </motion.div>
       <motion.h1
         variants={item}
         className="font-display text-4xl md:text-5xl font-bold leading-tight max-w-2xl"
       >
-        <span className="font-mono" style={{ color: "var(--alert)" }}>
+        <motion.span
+          className="font-mono inline-block"
+          style={{ color: "var(--alert)" }}
+          animate={{ scale: count >= target * 0.999 ? [1, 1.05, 1] : 1 }}
+          transition={{ duration: 0.4 }}
+        >
           {count.toFixed(1)}M
-        </span>{" "}
+        </motion.span>{" "}
         children are out of school today.
       </motion.h1>
       <motion.p variants={item} className="mt-4 max-w-xl" style={{ color: "var(--ink-soft)" }}>
