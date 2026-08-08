@@ -34,7 +34,7 @@ export default function ProvinceBar({ provinces }: { provinces: Province[] }) {
               </span>
             </div>
             <div
-              className="h-2 rounded-full overflow-hidden"
+              className={`h-2 rounded-full overflow-hidden ${p.outOfSchoolRate >= 50 ? "pulse-alert" : ""}`}
               style={{ background: "var(--bg-alt)" }}
             >
               <motion.div
