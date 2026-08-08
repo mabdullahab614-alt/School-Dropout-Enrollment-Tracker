@@ -21,7 +21,7 @@ export default function Header() {
             <a href="mailto:hello@rollcall.pk" className="hover:opacity-70 transition-opacity">
               hello@rollcall.pk
             </a>
-            
+            <a
               href="https://github.com/mabdullahab614-alt/School-Dropout-Enrollment-Tracker"
               target="_blank"
               rel="noopener noreferrer"
