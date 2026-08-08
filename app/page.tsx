@@ -1,4 +1,5 @@
 import Hero from "@/app/components/Hero";
+import RecentActivity from "@/app/components/RecentActivity";
 import StorySolution from "@/app/components/StorySolution";
 import ProvinceBar from "@/app/components/ProvinceBar";
 import JoinMovement from "@/app/components/JoinMovement";
@@ -10,6 +11,7 @@ export default async function Home() {
   return (
     <div>
       <Hero totalOutOfSchool={total} />
+      <RecentActivity />
       <StorySolution />
       <section id="sources" className="max-w-5xl mx-auto px-6 pb-16">
         <ProvinceBar provinces={provinces} />
