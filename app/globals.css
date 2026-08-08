@@ -127,6 +127,41 @@ body {
   50% {
     box-shadow: 0 0 0 7px rgba(220, 38, 38, 0);
   }
+  /* Fix: native select dropdown contrast in dark mode */
+select {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+select option {
+  background: var(--bg-alt);
+  color: var(--ink);
+}
+
+/* Light mode: solid color-psychology tints for the 4 main lookup sections.
+   Dark mode keeps the existing neutral card styling untouched. */
+.card-picker {
+  background: #eaf2ff;
+  border-color: #bfdbfe;
+}
+.card-stats {
+  background: #fef2f2;
+  border-color: #fecaca;
+}
+.card-schools {
+  background: #f0fdf4;
+  border-color: #bbf7d0;
+}
+.card-flag {
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+[data-theme="dark"] .card-picker,
+[data-theme="dark"] .card-stats,
+[data-theme="dark"] .card-schools,
+[data-theme="dark"] .card-flag {
+  background: var(--bg-alt);
+  border-color: var(--line);
+}
 }
 
 .pulse-alert {
