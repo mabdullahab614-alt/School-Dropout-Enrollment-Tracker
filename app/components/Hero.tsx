@@ -1,30 +1,74 @@
+"use client";
+
+import { useEffect, useState } from "react";
+import { motion } from "framer-motion";
 import Link from "next/link";
 
+const container = {
+  hidden: {},
+  show: { transition: { staggerChildren: 0.12 } },
+};
+
+const item = {
+  hidden: { opacity: 0, y: 14 },
+  show: { opacity: 1, y: 0, transition: { duration: 0.5, ease: "easeOut" } },
+};
+
 export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number }) {
-  const millions = (totalOutOfSchool / 1_000_000).toFixed(1);
+  const target = totalOutOfSchool / 1_000_000;
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    let frame: number;
+    const duration = 1100;
+    const start = performance.now();
+    const tick = (now: number) => {
+      const progress = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - progress, 3);
+      setCount(target * eased);
+      if (progress < 1) frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick);
+    return () => cancelAnimationFrame(frame);
+  }, [target]);
+
   return (
-    <section className="max-w-5xl mx-auto px-6 pt-14 pb-10">
-      <p className="text-sm uppercase tracking-wide mb-3" style={{ color: "var(--primary)" }}>
+    <motion.section
+      variants={container}
+      initial="hidden"
+      animate="show"
+      className="max-w-5xl mx-auto px-6 pt-14 pb-10"
+    >
+      <motion.p
+        variants={item}
+        className="text-sm uppercase tracking-wide mb-3"
+        style={{ color: "var(--trust)" }}
+      >
         Pakistan &middot; education access
-      </p>
-      <h1 className="font-display text-4xl md:text-5xl font-bold leading-tight max-w-2xl">
+      </motion.p>
+      <motion.h1
+        variants={item}
+        className="font-display text-4xl md:text-5xl font-bold leading-tight max-w-2xl"
+      >
         <span className="font-mono" style={{ color: "var(--alert)" }}>
-          {millions}M
+          {count.toFixed(1)}M
         </span>{" "}
         children are out of school today.
-      </h1>
-      <p className="mt-4 max-w-xl" style={{ color: "var(--ink-soft)" }}>
+      </motion.h1>
+      <motion.p variants={item} className="mt-4 max-w-xl" style={{ color: "var(--ink-soft)" }}>
         Roll Call helps parents, teachers, and community workers see the real
         numbers for their district and find a nearby school to enroll a
         child, backed by UNICEF and PBS data.
-      </p>
-      <Link
-        href="/lookup"
-        className="inline-block mt-6 px-6 py-3 rounded-full font-medium"
-        style={{ background: "var(--primary)", color: "#ffffff" }}
-      >
-        Check your district &rarr;
-      </Link>
-    </section>
+      </motion.p>
+      <motion.div variants={item}>
+        <Link
+          href="/lookup"
+          className="btn inline-block mt-6 px-6 py-3 rounded-full font-medium"
+          style={{ background: "var(--primary)", color: "#ffffff" }}
+        >
+          Check your district &rarr;
+        </Link>
+      </motion.div>
+    </motion.section>
   );
 }
