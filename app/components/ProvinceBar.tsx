@@ -1,3 +1,6 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { Province } from "@/app/lib/types";
 
 function rateColor(rate: number) {
@@ -8,7 +11,12 @@ function rateColor(rate: number) {
 
 export default function ProvinceBar({ provinces }: { provinces: Province[] }) {
   return (
-    <div className="card p-5">
+    <motion.div
+      initial={{ opacity: 0, y: 16 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.4, ease: "easeOut" }}
+      className="card p-5"
+    >
       <div
         className="flex justify-between text-xs uppercase tracking-wide mb-3 pb-2 divider"
         style={{ color: "var(--ink-soft)" }}
@@ -17,7 +25,7 @@ export default function ProvinceBar({ provinces }: { provinces: Province[] }) {
         <span>Out-of-school rate</span>
       </div>
       <ul className="flex flex-col gap-4">
-        {provinces.map((p) => (
+        {provinces.map((p, i) => (
           <li key={p.id}>
             <div className="flex justify-between items-baseline text-sm mb-1">
               <span className="font-medium">{p.name}</span>
@@ -29,17 +37,17 @@ export default function ProvinceBar({ provinces }: { provinces: Province[] }) {
               className="h-2 rounded-full overflow-hidden"
               style={{ background: "var(--bg-alt)" }}
             >
-              <div
+              <motion.div
                 className="h-full rounded-full"
-                style={{
-                  width: `${p.outOfSchoolRate}%`,
-                  background: rateColor(p.outOfSchoolRate),
-                }}
+                style={{ background: rateColor(p.outOfSchoolRate) }}
+                initial={{ width: 0 }}
+                animate={{ width: `${p.outOfSchoolRate}%` }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: i * 0.08 }}
               />
             </div>
           </li>
         ))}
       </ul>
-    </div>
+    </motion.div>
   );
 }
