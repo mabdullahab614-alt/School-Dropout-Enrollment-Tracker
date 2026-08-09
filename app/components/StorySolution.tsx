@@ -3,44 +3,12 @@ import { motion } from "framer-motion";
 
 const container = {
   hidden: {},
-  show: { transition: { staggerChildren: 0.12 } },
+  show: { transition: { staggerChildren: 0.15 } },
 };
 const item = {
-  hidden: { opacity: 0, y: 16 },
-  show: { opacity: 1, y: 0, transition: { duration: 0.5 } },
+  hidden: { opacity: 0, x: -16 },
+  show: { opacity: 1, x: 0, transition: { duration: 0.5 } },
 };
-
-const steps = [
-  {
-    title: "Find your district",
-    desc: "Pick a province and district to see the real, sourced out-of-school rate for that area — not a national average that hides local reality.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M12 21c-4.5-4-7-7.5-7-11a7 7 0 1 1 14 0c0 3.5-2.5 7-7 11z" />
-        <circle cx="12" cy="10" r="2.5" />
-      </svg>
-    ),
-  },
-  {
-    title: "See verified numbers",
-    desc: "Every figure is backed by UNICEF Pakistan and the Pakistan Bureau of Statistics — no guesswork, no inflated claims.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 19V9M12 19V5M20 19v-7" />
-      </svg>
-    ),
-  },
-  {
-    title: "Flag a child, find a school",
-    desc: "Know a child who isn't enrolled? Flag them for follow-up and browse nearby schools so a community worker can act.",
-    icon: (
-      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-        <path d="M4 21V4a1 1 0 0 1 1-1h8l6 6v12a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1z" />
-        <path d="M13 3v6h6" />
-      </svg>
-    ),
-  },
-];
 
 export default function StorySolution() {
   return (
@@ -50,17 +18,13 @@ export default function StorySolution() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
-        className="card p-6 sm:p-8 mb-10 relative overflow-hidden"
+        className="card p-6 sm:p-8 mb-10"
         style={{ borderLeft: "4px solid var(--trust)" }}
       >
-        <div
-          className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10"
-          style={{ background: "var(--trust)" }}
-        />
-        <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: "var(--trust)" }}>
+        <p className="text-xs uppercase tracking-wide mb-2" style={{ color: "var(--trust)" }}>
           Why this matters
         </p>
-        <p className="text-base sm:text-lg leading-relaxed relative" style={{ color: "var(--ink)" }}>
+        <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--ink)" }}>
           In parts of rural Balochistan, more than two out of three school-age
           children have never sat in a classroom. Not because their parents
           don&apos;t care — but because no one nearby could tell them how bad
@@ -70,54 +34,114 @@ export default function StorySolution() {
         </p>
       </motion.div>
 
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        viewport={{ once: true }}
+        className="text-xs uppercase tracking-wide mb-6"
+        style={{ color: "var(--ink-soft)" }}
+      >
+        How Roll Call helps
+      </motion.p>
+
       <motion.div
         variants={container}
         initial="hidden"
         whileInView="show"
         viewport={{ once: true, margin: "-80px" }}
+        className="relative"
       >
-        <motion.p
-          variants={item}
-          className="text-xs uppercase tracking-widest font-semibold mb-5"
-          style={{ color: "var(--ink-soft)" }}
-        >
-          How Roll Call helps
-        </motion.p>
-        <div className="grid sm:grid-cols-3 gap-5">
-          {steps.map((s, i) => (
-            <motion.div
-              key={s.title}
-              variants={item}
-              whileHover={{ y: -6 }}
-              transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              className="card p-6 h-full relative group cursor-default"
-              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
-            >
+        {/* Connecting path line (desktop only) */}
+        <div
+          className="hidden sm:block absolute top-11 left-0 right-0 h-px"
+          style={{
+            background:
+              "repeating-linear-gradient(to right, var(--line) 0, var(--line) 6px, transparent 6px, transparent 12px)",
+          }}
+        />
+
+        <div className="grid sm:grid-cols-3 gap-8 sm:gap-6 relative">
+          {/* Step 1 */}
+          <motion.div variants={item} className="flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
               <span
-                className="absolute top-4 right-4 text-4xl font-bold opacity-[0.06] select-none"
-                style={{ color: "var(--ink)" }}
+                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-sm relative z-10"
+                style={{ background: "var(--bg)", border: "2px solid var(--trust)", color: "var(--trust)" }}
               >
-                {i + 1}
+                1
               </span>
-              <div
-                className="w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
-                style={{
-                  background: "var(--bg)",
-                  color: "var(--trust)",
-                  boxShadow: "0 0 0 1px rgba(0,0,0,0.05)",
-                }}
+              <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
+            </div>
+            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
+              <path
+                d="M32 4C20 4 12 12 12 22c0 14 20 30 20 30s20-16 20-30c0-10-8-18-20-18z"
+                stroke="var(--trust)"
+                strokeWidth="2"
+                strokeLinejoin="round"
+              />
+              <circle cx="32" cy="22" r="7" stroke="var(--trust)" strokeWidth="2" />
+              <path d="M8 50c6-4 12-4 24-4s18 0 24 4" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            <h3 className="font-display font-semibold text-base mb-2">Find your district</h3>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              Pick a province and district to see the real, sourced
+              out-of-school rate for that area — not a national average that
+              hides local reality.
+            </p>
+          </motion.div>
+
+          {/* Step 2 */}
+          <motion.div variants={item} className="flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span
+                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-sm relative z-10"
+                style={{ background: "var(--bg)", border: "2px solid var(--primary)", color: "var(--primary)" }}
               >
-                {s.icon}
-              </div>
-              <p className="text-xs font-medium mb-1 tracking-wide" style={{ color: "var(--trust)" }}>
-                Step {i + 1}
-              </p>
-              <h3 className="font-semibold mb-2 text-[15px]">{s.title}</h3>
-              <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
-                {s.desc}
-              </p>
-            </motion.div>
-          ))}
+                2
+              </span>
+              <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
+            </div>
+            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
+              <rect x="8" y="34" width="10" height="16" rx="1.5" fill="var(--alert)" opacity="0.85" />
+              <rect x="22" y="22" width="10" height="28" rx="1.5" fill="var(--accent)" opacity="0.85" />
+              <rect x="36" y="10" width="10" height="40" rx="1.5" fill="var(--primary)" opacity="0.9" />
+              <rect x="50" y="26" width="10" height="24" rx="1.5" fill="var(--primary)" opacity="0.55" />
+              <path d="M4 50h56" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
+              <path d="M10 30l10-8 10 6 12-16" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
+            </svg>
+            <h3 className="font-display font-semibold text-base mb-2">See verified numbers</h3>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              Every figure is backed by UNICEF Pakistan and the Pakistan
+              Bureau of Statistics — no guesswork, no inflated claims.
+            </p>
+          </motion.div>
+
+          {/* Step 3 */}
+          <motion.div variants={item} className="flex flex-col">
+            <div className="flex items-center gap-3 mb-4">
+              <span
+                className="w-11 h-11 rounded-full flex items-center justify-center flex-shrink-0 font-display font-bold text-sm relative z-10"
+                style={{ background: "var(--bg)", border: "2px solid var(--accent)", color: "var(--accent)" }}
+              >
+                3
+              </span>
+              <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
+            </div>
+            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
+              <path d="M8 50V22l24-14 24 14v28" stroke="var(--accent)" strokeWidth="2" strokeLinejoin="round" />
+              <path d="M8 22h48" stroke="var(--accent)" strokeWidth="2" />
+              <rect x="20" y="30" width="10" height="20" stroke="var(--accent)" strokeWidth="2" />
+              <rect x="36" y="30" width="8" height="8" stroke="var(--accent)" strokeWidth="1.5" />
+              <path d="M32 8v8m0-8l6 3m-6-3l-6 3" stroke="var(--alert)" strokeWidth="2" strokeLinecap="round" />
+            </svg>
+            <h3 className="font-display font-semibold text-base mb-2">
+              Flag a child, find a school
+            </h3>
+            <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+              Know a child who isn&apos;t enrolled? Flag them for follow-up
+              and browse nearby schools so a community worker can act.
+            </p>
+          </motion.div>
         </div>
       </motion.div>
     </section>
