@@ -1,17 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import ThemeToggle from "@/app/components/ThemeToggle";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 8);
+    onScroll();
+    window.addEventListener("scroll", onScroll);
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
 
   return (
-    <header className="relative z-50">
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "var(--bg-alt-transparent, rgba(255,255,255,0.7))" : "var(--bg)",
+        backdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+        boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.06)" : "none",
+      }}
+    >
       <div
-        className="hidden sm:block border-b text-xs"
-        style={{ borderColor: "var(--line)", background: "var(--bg-alt)" }}
+        className={`hidden sm:block border-b text-xs overflow-hidden transition-all duration-300 ${
+          scrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-9 opacity-100"
+        }`}
+        style={{ borderColor: "var(--line)", background: "transparent" }}
       >
         <div className="max-w-5xl mx-auto px-6 h-9 flex items-center justify-between">
           <span style={{ color: "var(--ink-soft)" }}>
@@ -30,7 +48,10 @@ export default function Header() {
         </div>
       </div>
 
-      <div className="border-b" style={{ borderColor: "var(--line)", background: "var(--bg)" }}>
+      <div
+        className="border-b transition-colors duration-300"
+        style={{ borderColor: scrolled ? "transparent" : "var(--line)", background: "transparent" }}
+      >
         <div className="max-w-5xl mx-auto px-6 h-20 flex items-center justify-between">
           <Link href="/" className="flex items-center gap-3">
             <span
@@ -56,8 +77,15 @@ export default function Header() {
             <Link href="/lookup" className="nav-link">Find a district</Link>
           </nav>
 
-          <div className="hidden md:flex items-center gap-4">
+          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
+            <Link
+              href="/#join-movement"
+              className="btn px-5 py-2.5 rounded-full text-sm font-medium"
+              style={{ background: "var(--trust)", color: "#ffffff" }}
+            >
+              Join the Movement
+            </Link>
             <Link
               href="/lookup"
               className="btn px-5 py-2.5 rounded-full text-sm font-medium"
@@ -89,6 +117,7 @@ export default function Header() {
           >
             <Link href="/" onClick={() => setOpen(false)}>Home</Link>
             <Link href="/#sources" onClick={() => setOpen(false)}>Data sources</Link>
+            <Link href="/#join-movement" onClick={() => setOpen(false)}>Join the Movement</Link>
             <Link
               href="/lookup"
               onClick={() => setOpen(false)}
