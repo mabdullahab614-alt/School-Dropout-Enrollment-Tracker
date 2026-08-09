@@ -2,6 +2,7 @@
 import { useState, useTransition } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { joinMovement } from "@/app/actions";
+import SuccessCard from "@/app/components/SuccessCard";
 
 const roles = ["Parent", "Teacher", "Community worker", "Volunteer", "Other"];
 
@@ -15,45 +16,46 @@ export default function JoinMovement() {
 
   return (
     <section id="join-movement" className="max-w-5xl mx-auto px-6 pb-20 scroll-mt-24">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-80px" }}
-        transition={{ duration: 0.5 }}
-        className="card p-6 sm:p-10 text-center"
-        style={{ borderTop: "4px solid var(--primary)" }}
-      >
-        <p className="text-xs uppercase tracking-wide mb-2" style={{ color: "var(--primary-dark)" }}>
-          Be part of the solution
-        </p>
-        <h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">
-          Join the movement
-        </h2>
-        <p className="max-w-xl mx-auto mb-8" style={{ color: "var(--ink-soft)" }}>
-          Every district needs local eyes. Sign up to get updates on your
-          area, volunteer opportunities, and ways to help a child get
-          enrolled.
-        </p>
+      <AnimatePresence mode="wait">
+        {submitted ? (
+          <motion.div
+            key="thanks"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <SuccessCard
+              title="You're in."
+              message="Thanks for joining the movement — we'll be in touch with updates and ways to help in your area."
+              primaryLabel="Explore More Data"
+              primaryHref="/lookup"
+              secondaryLabel="Return Home"
+              secondaryHref="/"
+            />
+          </motion.div>
+        ) : (
+          <motion.div
+            key="form"
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.5 }}
+            className="card p-6 sm:p-10 text-center"
+            style={{ borderTop: "4px solid var(--primary)" }}
+          >
+            <p className="text-xs uppercase tracking-wide mb-2" style={{ color: "var(--primary-dark)" }}>
+              Be part of the solution
+            </p>
+            <h2 className="font-display text-2xl sm:text-3xl font-bold mb-3">
+              Join the movement
+            </h2>
+            <p className="max-w-xl mx-auto mb-8" style={{ color: "var(--ink-soft)" }}>
+              Every district needs local eyes. Sign up to get updates on your
+              area, volunteer opportunities, and ways to help a child get
+              enrolled.
+            </p>
 
-        <AnimatePresence mode="wait">
-          {submitted ? (
-            <motion.div
-              key="thanks"
-              initial={{ opacity: 0, y: 8 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.35 }}
-              className="text-sm max-w-md mx-auto"
-              style={{ color: "var(--primary-dark)" }}
-            >
-              You&apos;re in! We&apos;ll be in touch with ways to help in your
-              area.
-            </motion.div>
-          ) : (
             <motion.form
-              key="form"
-              initial={{ opacity: 0, y: 12 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.4 }}
               className="flex flex-col sm:flex-row gap-3 max-w-2xl mx-auto"
               onSubmit={(e) => {
                 e.preventDefault();
@@ -109,14 +111,14 @@ export default function JoinMovement() {
                 {isPending ? "Joining..." : "Join now"}
               </motion.button>
             </motion.form>
-          )}
-        </AnimatePresence>
-        {error && (
-          <p className="text-xs mt-3" style={{ color: "var(--alert)" }}>
-            {error}
-          </p>
+            {error && (
+              <p className="text-xs mt-3" style={{ color: "var(--alert)" }}>
+                {error}
+              </p>
+            )}
+          </motion.div>
         )}
-      </motion.div>
+      </AnimatePresence>
     </section>
   );
 }
