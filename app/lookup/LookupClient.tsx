@@ -132,23 +132,23 @@ export default function LookupClient({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4 }}
-            className="card p-1 w-full h-[340px] sm:h-[420px] flex items-center justify-center relative overflow-hidden"
-            style={{ background: "var(--bg-alt)" }}
+            className="card p-1 w-full h-[340px] sm:h-[420px] overflow-hidden relative"
           >
-            <svg width="100%" height="100%" viewBox="0 0 600 400" className="absolute inset-0 opacity-40">
-              <defs>
-                <pattern id="grid" width="30" height="30" patternUnits="userSpaceOnUse">
-                  <path d="M 30 0 L 0 0 0 30" fill="none" stroke="var(--line)" strokeWidth="1" />
-                </pattern>
-              </defs>
-              <rect width="600" height="400" fill="url(#grid)" />
-            </svg>
-            <span
-              className="font-display font-semibold text-xl sm:text-2xl relative"
-              style={{ color: "var(--ink-soft)" }}
+            <iframe
+              key={district.id}
+              title={"Map of " + district.name + ", " + province.name}
+              width="100%"
+              height="100%"
+              style={{ border: 0, filter: "grayscale(0.15) contrast(1.05)" }}
+              loading="lazy"
+              src={"https://www.google.com/maps?q=" + encodeURIComponent(district.name + ", " + province.name + ", Pakistan") + "&output=embed"}
+            />
+            <div
+              className="absolute bottom-3 left-3 px-3 py-1.5 rounded-full text-xs font-medium pointer-events-none"
+              style={{ background: "rgba(255,255,255,0.9)", color: "var(--ink)" }}
             >
-              Interactive regional map &mdash; {district.name}
-            </span>
+              {district.name}, {province.name}
+            </div>
           </motion.div>
 
           <div className="grid grid-cols-2 gap-4">
