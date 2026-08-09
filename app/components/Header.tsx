@@ -64,10 +64,19 @@ export default function Header() {
               </svg>
             </span>
             <span>
-              <span className="font-display text-xl font-bold block leading-none">Roll Call</span>
-              <span className="text-xs block mt-0.5" style={{ color: "var(--ink-soft)" }}>
-                Every child counted
-              </span>
+  <span
+    className="font-display font-bold block leading-none tracking-tight"
+    style={{ fontSize: "1.65rem" }}
+  >
+    Roll Call
+  </span>
+  <span
+    className="block mt-1 italic tracking-wide"
+    style={{ color: "var(--ink-soft)", fontSize: "0.7rem" }}
+  >
+    Every child counted
+  </span>
+</span>
             </span>
           </Link>
 
