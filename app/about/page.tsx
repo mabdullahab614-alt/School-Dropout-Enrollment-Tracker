@@ -1,112 +1,67 @@
-export default function AboutPage() {
+import Link from "next/link";
+
+export const metadata = {
+  title: "About — Roll Call",
+  description: "Learn about Roll Call's mission, data sources, and methodology.",
+};
+
+export default function About() {
   return (
-    <div className="max-w-[1200px] mx-auto px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col gap-section-gap">
-      {/* Mission */}
-      <section className="flex flex-col gap-6 max-w-3xl">
-        <span className="font-label-caps text-label-caps text-on-surface-variant tracking-widest uppercase">
-          Our Mission
-        </span>
-        <h1 className="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-primary leading-tight">
-          Making the out-of-school crisis local, visible, and actionable.
-        </h1>
-        <p className="font-body-lg text-body-lg text-on-surface-variant">
-          Pakistan has an estimated 25.2 million children out of school —
-          one of the highest out-of-school populations in the world. Roll
-          Call exists to take that national number and make it real at the
-          province and district level, so parents, teachers, and community
-          workers can act on it, not just read about it.
+    <div className="max-w-3xl mx-auto px-6 py-16">
+      <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: "var(--trust)" }}>
+        About Roll Call
+      </p>
+      <h1 className="font-display text-3xl sm:text-4xl font-bold mb-6">
+        Every child counted, one district at a time.
+      </h1>
+      <p className="text-base leading-relaxed mb-6" style={{ color: "var(--ink-soft)" }}>
+        Roll Call exists because national averages hide local reality. An
+        estimated 25.2 million children in Pakistan are out of school —
+        but that number means nothing to a parent trying to understand
+        why the nearest school feels out of reach. We break the crisis
+        down to the province and district level, so the people closest
+        to the problem can actually act on it.
+      </p>
+
+      <div className="card p-6 mb-6" style={{ borderLeft: "4px solid var(--trust)" }}>
+        <h2 className="font-display font-semibold text-lg mb-2">Our mission</h2>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+          To turn scattered national education statistics into a number a
+          parent, teacher, or community worker can use — and to connect
+          them with nearby schools and local initiatives that can help a
+          child get enrolled.
         </p>
-      </section>
+      </div>
 
-      {/* What we do */}
-      <section className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
-        <div className="bg-white border border-surface-variant rounded-lg p-6 flex flex-col gap-3">
-          <span className="material-symbols-outlined text-primary-container text-3xl">
-            bar_chart
-          </span>
-          <h3 className="font-headline-md text-headline-md text-primary">
-            Show the real numbers
-          </h3>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            Every province-level figure on this site is sourced from UNICEF
-            Pakistan and the Pakistan Bureau of Statistics — not estimates
-            we made up.
-          </p>
-        </div>
-        <div className="bg-white border border-surface-variant rounded-lg p-6 flex flex-col gap-3">
-          <span className="material-symbols-outlined text-primary-container text-3xl">
-            school
-          </span>
-          <h3 className="font-headline-md text-headline-md text-primary">
-            Point to nearby schools
-          </h3>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            The Lookup tool helps you find schools by district, so a family
-            has a concrete next step, not just a statistic.
-          </p>
-        </div>
-        <div className="bg-white border border-surface-variant rounded-lg p-6 flex flex-col gap-3">
-          <span className="material-symbols-outlined text-primary-container text-3xl">
-            flag
-          </span>
-          <h3 className="font-headline-md text-headline-md text-primary">
-            Flag a child
-          </h3>
-          <p className="font-body-md text-body-md text-on-surface-variant">
-            Know a specific out-of-school child? Flag them for follow-up —
-            no login required, takes under a minute.
-          </p>
-        </div>
-      </section>
+      <div className="card p-6 mb-6" style={{ borderLeft: "4px solid var(--primary)" }}>
+        <h2 className="font-display font-semibold text-lg mb-2">Data methodology</h2>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+          Figures are sourced from UNICEF Pakistan&apos;s education
+          overview and the Pakistan Bureau of Statistics (HIES 2024–25).
+          School listings are illustrative for this MVP and will be
+          replaced with verified EMIS (Education Management Information
+          System) data as we scale.
+        </p>
+      </div>
 
-      {/* Data Methodology */}
-      <section
-        id="methodology"
-        className="bg-surface-container-low border border-surface-container-highest rounded-lg p-8 flex flex-col gap-4"
+      <div className="card p-6 mb-10" style={{ borderLeft: "4px solid var(--accent)" }}>
+        <h2 className="font-display font-semibold text-lg mb-2">Get in touch</h2>
+        <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
+          Questions, corrections, or want to bring Roll Call to your
+          district?{" "}
+          <a href="mailto:hello@rollcall.pk" className="underline hover:opacity-80 transition-opacity">
+            hello@rollcall.pk
+          </a>
+        </p>
+      </div>
+
+      <Link
+        href="/#join-movement"
+        className="btn inline-block px-6 py-3 rounded-full font-medium"
+        style={{ background: "var(--primary)", color: "#ffffff" }}
       >
-        <h2 className="font-headline-lg text-headline-lg text-primary">
-          Data Methodology
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          <strong className="text-primary">Province-level figures</strong>{" "}
-          (total out-of-school children, out-of-school rate, school-age
-          population) are sourced from UNICEF Pakistan&apos;s Education
-          overview (2026) and the Pakistan Bureau of Statistics HIES
-          2024–25. These are verified, cited figures.
-        </p>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          <strong className="text-primary">
-            District notes and school listings
-          </strong>{" "}
-          are illustrative placeholders for this MVP. Production use would
-          require district-level EMIS (Education Management Information
-          System) data, which this project does not yet integrate.
-        </p>
-      </section>
-
-      {/* Privacy */}
-      <section className="flex flex-col gap-4 max-w-3xl">
-        <h2 className="font-headline-lg text-headline-lg text-primary">
-          Privacy Policy
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          When you flag a child, your note is stored with the district you
-          selected and a timestamp. It is not linked to any account or
-          identity. Submissions are not publicly readable — they exist so
-          that a local contact can follow up.
-        </p>
-      </section>
-
-      {/* Contact */}
-      <section className="flex flex-col gap-4 max-w-3xl">
-        <h2 className="font-headline-lg text-headline-lg text-primary">
-          Contact Support
-        </h2>
-        <p className="font-body-md text-body-md text-on-surface-variant">
-          Built for AI Seekho — Assignment 4. For questions about this
-          project, reach out through the GitHub repository.
-        </p>
-      </section>
+        Join the movement &rarr;
+      </Link>
     </div>
   );
-}   
+}
