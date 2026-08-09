@@ -50,13 +50,17 @@ export default function StorySolution() {
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-80px" }}
         transition={{ duration: 0.5 }}
-        className="card p-6 sm:p-8 mb-8"
+        className="card p-6 sm:p-8 mb-10 relative overflow-hidden"
         style={{ borderLeft: "4px solid var(--trust)" }}
       >
-        <p className="text-xs uppercase tracking-wide mb-2" style={{ color: "var(--trust)" }}>
+        <div
+          className="absolute -right-10 -top-10 w-40 h-40 rounded-full opacity-10"
+          style={{ background: "var(--trust)" }}
+        />
+        <p className="text-xs uppercase tracking-widest font-semibold mb-3" style={{ color: "var(--trust)" }}>
           Why this matters
         </p>
-        <p className="text-base sm:text-lg leading-relaxed" style={{ color: "var(--ink)" }}>
+        <p className="text-base sm:text-lg leading-relaxed relative" style={{ color: "var(--ink)" }}>
           In parts of rural Balochistan, more than two out of three school-age
           children have never sat in a classroom. Not because their parents
           don&apos;t care — but because no one nearby could tell them how bad
@@ -74,24 +78,41 @@ export default function StorySolution() {
       >
         <motion.p
           variants={item}
-          className="text-xs uppercase tracking-wide mb-4"
+          className="text-xs uppercase tracking-widest font-semibold mb-5"
           style={{ color: "var(--ink-soft)" }}
         >
           How Roll Call helps
         </motion.p>
         <div className="grid sm:grid-cols-3 gap-5">
           {steps.map((s, i) => (
-            <motion.div key={s.title} variants={item} className="card p-5 h-full">
+            <motion.div
+              key={s.title}
+              variants={item}
+              whileHover={{ y: -6 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              className="card p-6 h-full relative group cursor-default"
+              style={{ boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}
+            >
+              <span
+                className="absolute top-4 right-4 text-4xl font-bold opacity-[0.06] select-none"
+                style={{ color: "var(--ink)" }}
+              >
+                {i + 1}
+              </span>
               <div
-                className="w-10 h-10 rounded-full flex items-center justify-center mb-4"
-                style={{ background: "var(--bg)", color: "var(--trust)" }}
+                className="w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-transform duration-300 group-hover:scale-110"
+                style={{
+                  background: "var(--bg)",
+                  color: "var(--trust)",
+                  boxShadow: "0 0 0 1px rgba(0,0,0,0.05)",
+                }}
               >
                 {s.icon}
               </div>
-              <p className="text-xs mb-1" style={{ color: "var(--ink-soft)" }}>
+              <p className="text-xs font-medium mb-1 tracking-wide" style={{ color: "var(--trust)" }}>
                 Step {i + 1}
               </p>
-              <h3 className="font-semibold mb-2">{s.title}</h3>
+              <h3 className="font-semibold mb-2 text-[15px]">{s.title}</h3>
               <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
                 {s.desc}
               </p>
