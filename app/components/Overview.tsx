@@ -30,23 +30,13 @@ const cards = [
     title: "Provincial Data",
     desc: "Drill down into specific provinces to understand local challenges, resource allocation, and demographic trends.",
     visual: (
-      <div
-        className="w-full h-32 rounded-lg flex items-end justify-center gap-2 px-6 pb-4"
-        style={{ background: "var(--bg-alt)" }}
-      >
-        {[65, 44, 34, 27, 15].map((h, i) => (
-          <motion.div
-            key={i}
-            initial={{ height: 0 }}
-            whileInView={{ height: `${h}%` }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: i * 0.08, ease: "easeOut" }}
-            className="w-6 rounded-t-sm"
-            style={{
-              background: `linear-gradient(180deg, var(--trust), var(--primary))`,
-            }}
-          />
-        ))}
+      <div className="relative w-full h-32 rounded-lg overflow-hidden">
+        <Image
+          src="/images/provincial-data.jpg"
+          alt="Children in a rural Pakistani province"
+          fill
+          className="object-cover"
+        />
       </div>
     ),
   },
@@ -54,24 +44,13 @@ const cards = [
     title: "Community Action",
     desc: "Connect with local initiatives, report out-of-school children, and contribute to targeted intervention programs.",
     visual: (
-      <div
-        className="w-full h-32 rounded-lg flex items-center justify-center"
-        style={{ background: "var(--bg-alt)" }}
-      >
-        <svg width="80" height="80" viewBox="0 0 80 80" fill="none">
-          <circle cx="40" cy="40" r="26" stroke="var(--trust)" strokeWidth="2" opacity="0.5" />
-          <path
-            d="M14 40h52M40 14c8 7 12 16 12 26s-4 19-12 26c-8-7-12-16-12-26s4-19 12-26z"
-            stroke="var(--trust)"
-            strokeWidth="1.5"
-            opacity="0.4"
-          />
-          <circle cx="40" cy="40" r="4" fill="var(--primary)" />
-          <circle cx="26" cy="30" r="3" fill="var(--accent)" />
-          <circle cx="54" cy="48" r="3" fill="var(--primary)" />
-          <circle cx="30" cy="54" r="3" fill="var(--trust)" />
-          <path d="M40 40L26 30M40 40l14 8M40 40l-10 14" stroke="var(--ink-soft)" strokeWidth="1" opacity="0.5" />
-        </svg>
+      <div className="relative w-full h-32 rounded-lg overflow-hidden">
+        <Image
+          src="/images/community-action.jpg"
+          alt="Community members gathering in Pakistan"
+          fill
+          className="object-cover"
+        />
       </div>
     ),
   },
