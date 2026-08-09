@@ -63,21 +63,20 @@ export default function Header() {
                 <path d="M6 12v5c0 1.5 2.7 3 6 3s6-1.5 6-3v-5" />
               </svg>
             </span>
-            <span>
-  <span
-    className="font-display font-bold block leading-none tracking-tight"
-    style={{ fontSize: "1.65rem" }}
-  >
-    Roll Call
-  </span>
-  <span
-    className="block mt-1 italic tracking-wide"
-    style={{ color: "var(--ink-soft)", fontSize: "0.7rem" }}
-  >
-    Every child counted
-  </span>
-</span>
-            </span>
+            <div>
+              <span
+                className="font-display font-bold block leading-none tracking-tight"
+                style={{ fontSize: "1.65rem" }}
+              >
+                Roll Call
+              </span>
+              <span
+                className="block mt-1 italic tracking-wide"
+                style={{ color: "var(--ink-soft)", fontSize: "0.7rem" }}
+              >
+                Every child counted
+              </span>
+            </div>
           </Link>
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
