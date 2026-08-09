@@ -19,7 +19,7 @@ export default function Header() {
     <header
       className="sticky top-0 z-50 transition-all duration-300"
       style={{
-        background: scrolled ? "var(--bg-alt-transparent, rgba(255,255,255,0.7))" : "var(--bg)",
+        background: scrolled ? "rgba(255,255,255,0.7)" : "var(--bg)",
         backdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
         WebkitBackdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
         boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.06)" : "none",
@@ -73,8 +73,9 @@ export default function Header() {
 
           <nav className="hidden md:flex items-center gap-8 text-sm font-medium">
             <Link href="/" className="nav-link">Home</Link>
-            <Link href="/#sources" className="nav-link">Data sources</Link>
-            <Link href="/lookup" className="nav-link">Find a district</Link>
+            <Link href="/lookup" className="nav-link">Explore Data</Link>
+            <Link href="/lookup#flag" className="nav-link">Flag a Child</Link>
+            <Link href="/about" className="nav-link">About</Link>
           </nav>
 
           <div className="hidden md:flex items-center gap-3">
@@ -82,7 +83,7 @@ export default function Header() {
             <Link
               href="/#join-movement"
               className="btn px-5 py-2.5 rounded-full text-sm font-medium"
-              style={{ background: "var(--trust)", color: "#ffffff" }}
+              style={{ background: "transparent", color: "var(--trust)", border: "1.5px solid var(--trust)" }}
             >
               Join the Movement
             </Link>
@@ -116,7 +117,9 @@ export default function Header() {
             style={{ borderColor: "var(--line)", background: "var(--bg)" }}
           >
             <Link href="/" onClick={() => setOpen(false)}>Home</Link>
-            <Link href="/#sources" onClick={() => setOpen(false)}>Data sources</Link>
+            <Link href="/lookup" onClick={() => setOpen(false)}>Explore Data</Link>
+            <Link href="/lookup#flag" onClick={() => setOpen(false)}>Flag a Child</Link>
+            <Link href="/about" onClick={() => setOpen(false)}>About</Link>
             <Link href="/#join-movement" onClick={() => setOpen(false)}>Join the Movement</Link>
             <Link
               href="/lookup"
