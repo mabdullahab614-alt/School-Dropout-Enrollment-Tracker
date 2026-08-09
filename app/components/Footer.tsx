@@ -49,7 +49,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-bold uppercase tracking-wide mb-4" style={{ color: "#ffffff" }}>About this project</h3>
             <p className="text-sm leading-relaxed" style={{ color: "#a3ada3" }}>
-              Figures sourced from <a href="https://data.unicef.org/country/pak/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">UNICEF Pakistan</a> and the <a href="https://www.pbs.gov.pk/content/household-integrated-economic-survey-hies" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Pakistan Bureau of Statistics (HIES 2024-25)</a>. School listings are illustrative for this MVP.
+              Figures sourced from <a href="https://data.unicef.org/country/pak/" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">UNICEF Pakistan</a> and the <a href="https://www.pbs.gov.pk/content/household-integrated-economic-survey-hies" target="_blank" rel="noopener noreferrer" className="underline hover:text-white transition-colors">Pakistan Bureau of Statistics (HIES 2024-25)</a>. School listings are sourced from Punjab, Sindh, KP, Balochistan, and Federal EMIS records where publicly available.
             </p>
           </div>
         </div>
