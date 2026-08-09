@@ -1,9 +1,8 @@
 "use client";
-
 import { useState, useTransition } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { flagChild } from "@/app/actions";
-
+import SuccessCard from "@/app/components/SuccessCard";
 export default function FlagChildForm({
   districtId,
   districtName,
@@ -15,20 +14,18 @@ export default function FlagChildForm({
   const [note, setNote] = useState("");
   const [error, setError] = useState<string | null>(null);
   const [isPending, startTransition] = useTransition();
-
   return (
     <AnimatePresence mode="wait">
       {submitted ? (
-        <motion.div
-          key="thanks"
-          initial={{ opacity: 0, y: 8 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.35, ease: "easeOut" }}
-          className="card p-5 text-sm"
-          style={{ color: "var(--primary-dark)" }}
-        >
-          Thanks — this has been logged for {districtName}. A community
-          contact will follow up.
+        <motion.div key="thanks">
+          <SuccessCard
+            title="Thank you."
+            message={`Your report for ${districtName} has been logged. This information helps us map the reality of the situation and allocate resources where they are needed most.`}
+            primaryLabel="Explore More Data"
+            primaryHref="/lookup"
+            secondaryLabel="Return Home"
+            secondaryHref="/"
+          />
         </motion.div>
       ) : (
         <motion.form
