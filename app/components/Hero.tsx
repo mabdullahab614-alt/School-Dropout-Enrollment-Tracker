@@ -12,8 +12,21 @@ const item: Variants = {
 };
 export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number }) {
   const target = totalOutOfSchool / 1_000_000;
-  const [count, setCount] = useState(0);
+
+  // Start with the FINAL value so server-rendered HTML (and crawlers) always
+  // see the real number. Only after the component mounts on the client do we
+  // reset to 0 and animate up, purely as a visual flourish for real users.
+  const [count, setCount] = useState(target);
+  const [mounted, setMounted] = useState(false);
+
   useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  useEffect(() => {
+    if (!mounted) return;
+
+    setCount(0);
     let frame: number;
     const duration = 1600;
     const start = performance.now();
@@ -25,7 +38,9 @@ export default function Hero({ totalOutOfSchool }: { totalOutOfSchool: number })
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [target]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [mounted, target]);
+
   return (
     <motion.section
       variants={container}
