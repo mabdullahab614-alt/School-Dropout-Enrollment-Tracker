@@ -1,5 +1,6 @@
 "use client";
 import { motion } from "framer-motion";
+import Image from "next/image";
 
 const container = {
   hidden: {},
@@ -72,16 +73,18 @@ export default function StorySolution() {
               </span>
               <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
             </div>
-            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
-              <path
-                d="M32 4C20 4 12 12 12 22c0 14 20 30 20 30s20-16 20-30c0-10-8-18-20-18z"
-                stroke="var(--trust)"
-                strokeWidth="2"
-                strokeLinejoin="round"
+            <div
+              className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4"
+              style={{ border: "1px solid var(--line)" }}
+            >
+              <Image
+                src="/images/community-kids.jpg"
+                alt="Children in a rural Pakistani community"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover"
               />
-              <circle cx="32" cy="22" r="7" stroke="var(--trust)" strokeWidth="2" />
-              <path d="M8 50c6-4 12-4 24-4s18 0 24 4" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            </div>
             <h3 className="font-display font-semibold text-base mb-2">Find your district</h3>
             <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
               Pick a province and district to see the real, sourced
@@ -101,14 +104,18 @@ export default function StorySolution() {
               </span>
               <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
             </div>
-            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
-              <rect x="8" y="34" width="10" height="16" rx="1.5" fill="var(--alert)" opacity="0.85" />
-              <rect x="22" y="22" width="10" height="28" rx="1.5" fill="var(--accent)" opacity="0.85" />
-              <rect x="36" y="10" width="10" height="40" rx="1.5" fill="var(--primary)" opacity="0.9" />
-              <rect x="50" y="26" width="10" height="24" rx="1.5" fill="var(--primary)" opacity="0.55" />
-              <path d="M4 50h56" stroke="var(--line)" strokeWidth="2" strokeLinecap="round" />
-              <path d="M10 30l10-8 10 6 12-16" stroke="var(--ink)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" opacity="0.4" />
-            </svg>
+            <div
+              className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4"
+              style={{ border: "1px solid var(--line)" }}
+            >
+              <Image
+                src="/images/classroom.jpg"
+                alt="Students in a Pakistani classroom"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
             <h3 className="font-display font-semibold text-base mb-2">See verified numbers</h3>
             <p className="text-sm leading-relaxed" style={{ color: "var(--ink-soft)" }}>
               Every figure is backed by UNICEF Pakistan and the Pakistan
@@ -127,13 +134,18 @@ export default function StorySolution() {
               </span>
               <div className="h-px flex-1 sm:hidden" style={{ background: "var(--line)" }} />
             </div>
-            <svg width="64" height="56" viewBox="0 0 64 56" fill="none" className="mb-4">
-              <path d="M8 50V22l24-14 24 14v28" stroke="var(--accent)" strokeWidth="2" strokeLinejoin="round" />
-              <path d="M8 22h48" stroke="var(--accent)" strokeWidth="2" />
-              <rect x="20" y="30" width="10" height="20" stroke="var(--accent)" strokeWidth="2" />
-              <rect x="36" y="30" width="8" height="8" stroke="var(--accent)" strokeWidth="1.5" />
-              <path d="M32 8v8m0-8l6 3m-6-3l-6 3" stroke="var(--alert)" strokeWidth="2" strokeLinecap="round" />
-            </svg>
+            <div
+              className="relative w-full aspect-[4/3] rounded-xl overflow-hidden mb-4"
+              style={{ border: "1px solid var(--line)" }}
+            >
+              <Image
+                src="/images/flag-boy.jpg"
+                alt="A boy on his way to school"
+                fill
+                sizes="(max-width: 640px) 100vw, 33vw"
+                className="object-cover"
+              />
+            </div>
             <h3 className="font-display font-semibold text-base mb-2">
               Flag a child, find a school
             </h3>
