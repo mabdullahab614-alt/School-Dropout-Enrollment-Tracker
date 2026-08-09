@@ -16,7 +16,15 @@ export default function Header() {
   }, []);
 
   return (
-    <header className="sticky top-0 z-50 transition-all duration-300" style={{ background: scrolled ? "rgba(255,255,255,0.7)" : "var(--bg)", backdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none", WebkitBackdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none", boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.06)" : "none" }}>
+    <header
+      className="sticky top-0 z-50 transition-all duration-300"
+      style={{
+        background: scrolled ? "var(--header-glass)" : "var(--header-bg)",
+        backdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(12px) saturate(180%)" : "none",
+        boxShadow: scrolled ? "0 1px 12px rgba(0,0,0,0.08)" : "0 1px 0 var(--line)",
+      }}
+    >
       <div className={"hidden sm:block border-b text-xs overflow-hidden transition-all duration-300 " + (scrolled ? "max-h-0 opacity-0 border-transparent" : "max-h-9 opacity-100")} style={{ borderColor: "var(--line)", background: "transparent" }}>
         <div className="max-w-5xl mx-auto px-6 h-9 flex items-center justify-between">
           <span style={{ color: "var(--ink-soft)" }}>Powered by UNICEF and Pakistan Bureau of Statistics data</span>
