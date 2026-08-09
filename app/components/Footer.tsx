@@ -64,7 +64,7 @@ export default function Footer() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn inline-flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium"
-                style={{ border: "1.5px solid rgba(255,255,255,0.2)", color: "#e8ece7" }}
+                style={{ borderWidth: "1.5px", borderStyle: "solid", borderColor: "rgba(255,255,255,0.2)", color: "#e8ece7" }}
               >
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.5 0-.24-.01-1.04-.01-1.89-2.78.62-3.37-1.21-3.37-1.21-.46-1.19-1.11-1.51-1.11-1.51-.91-.64.07-.62.07-.62 1 .07 1.53 1.05 1.53 1.05.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.37-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.02-2.75-.1-.26-.44-1.31.1-2.72 0 0 .84-.27 2.75 1.05a9.3 9.3 0 0 1 2.5-.35c.85 0 1.71.12 2.5.35 1.91-1.32 2.75-1.05 2.75-1.05.54 1.41.2 2.46.1 2.72.63.72 1.02 1.63 1.02 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .28.18.6.69.5A10.26 10.26 0 0 0 22 12.25C22 6.58 17.52 2 12 2z" />
@@ -108,7 +108,7 @@ export default function Footer() {
                 rel="noopener noreferrer"
                 className="underline hover:text-white transition-colors"
               >
-                Pakistan Bureau of Statistics (HIES 2024–25)
+                Pakistan Bureau of Statistics (HIES 2024-25)
               </a>
               . School listings are illustrative for this MVP.
             </p>
@@ -121,8 +121,8 @@ export default function Footer() {
           className="max-w-5xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs"
           style={{ color: "#a3ada3" }}
         >
-          <span>© 2026 Roll Call · Built for AI Seekho — Assignment 4</span>
-          <span>Built by Abdullah Javid · Next.js + Supabase</span>
+          <span>© 2026 Roll Call - Built for AI Seekho, Assignment 4</span>
+          <span>Built by Abdullah Javid - Next.js + Supabase</span>
         </div>
       </div>
     </footer>
