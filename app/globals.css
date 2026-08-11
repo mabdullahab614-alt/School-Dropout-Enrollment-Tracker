@@ -2,40 +2,39 @@
 :root {
   color-scheme: light;
   --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  --trust: #eab308;
-  --primary: #d97706;
-  --primary-dark: #b45309;
-  --accent: #f59e0b;
-  --alert: #dc2626;
-  --ink: #2b2013;
-  --ink-soft: #8a7358;
-  --bg: #fffbf2;
-  --bg-alt: #fef3e2;
-  --line: #f5dfb8;
-  --card-shadow: 0 1px 3px rgba(120, 72, 0, 0.06), 0 1px 2px rgba(120, 72, 0, 0.04);
-  --card-shadow-hover: 0 16px 28px rgba(120, 72, 0, 0.12), 0 0 0 1px var(--line);
+  --trust: #0f6b66;
+  --primary: #0f6b66;
+  --primary-dark: #0a4a46;
+  --accent: #ff9f1c;
+  --alert: #e63946;
+  --ink: #1a2523;
+  --ink-soft: #5c6b68;
+  --bg: #fdfaf3;
+  --bg-alt: #f5efdc;
+  --line: #e3dcc4;
+  --card-shadow: 0 1px 3px rgba(15, 107, 102, 0.08), 0 1px 2px rgba(15, 107, 102, 0.05);
+  --card-shadow-hover: 0 16px 28px rgba(15, 107, 102, 0.16), 0 0 0 1px var(--line);
 }
 [data-theme="dark"] {
   color-scheme: dark;
-  --trust: #fbbf24;
-  --primary: #f59e0b;
-  --primary-dark: #d97706;
-  --accent: #fbbf24;
-  --alert: #f87171;
-  --ink: #fdf6e8;
-  --ink-soft: #c9b48c;
-  --bg: #1a1108;
-  --bg-alt: #241708;
-  --line: #3d2a14;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(251, 191, 36, 0.06);
-  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(251, 191, 36, 0.18);
+  --trust: #4fd1c5;
+  --primary: #4fd1c5;
+  --primary-dark: #0f6b66;
+  --accent: #ffb648;
+  --alert: #ff6b6b;
+  --ink: #f2ece0;
+  --ink-soft: #b5ab94;
+  --bg: #14211f;
+  --bg-alt: #1c2d2a;
+  --line: #2e433f;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(79, 209, 197, 0.06);
+  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(79, 209, 197, 0.18);
 }
 body {
-  background: var(--bg, #fffbf2);
-  color: var(--ink, #2b2013);
+  background: var(--bg, #fdfaf3);
+  color: var(--ink, #1a2523);
   transition: var(--transition-theme);
 }
-/* Cards: subtle 3D tilt + lift on hover — depth signals importance/interactivity */
 .card {
   background: var(--bg-alt);
   border: 1px solid var(--line);
@@ -70,7 +69,6 @@ body {
 .nav-link:hover::after {
   width: 100%;
 }
-/* Buttons: click feedback (scale + ripple flash) — reduces uncertainty, feels responsive */
 .btn {
   position: relative;
   overflow: hidden;
@@ -91,7 +89,7 @@ body {
 }
 .btn:hover {
   filter: brightness(1.08);
-  box-shadow: 0 8px 18px rgba(120, 72, 0, 0.15);
+  box-shadow: 0 8px 18px rgba(15, 107, 102, 0.18);
   transform: translateY(-1px);
 }
 .btn:active {
@@ -103,20 +101,17 @@ body {
   opacity: 1;
   transition: 0s;
 }
-/* Slow pulsing glow for high-risk stats only — urgency without alarm-fatigue */
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(220, 38, 38, 0.3);
+    box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 7px rgba(220, 38, 38, 0);
+    box-shadow: 0 0 0 7px rgba(230, 57, 70, 0);
   }
 }
 .pulse-alert {
   animation: pulseGlow 2.4s ease-in-out infinite;
 }
-
-/* Fix: native select dropdown contrast in dark mode */
 select {
   background: var(--bg-alt);
   color: var(--ink);
@@ -125,24 +120,21 @@ select option {
   background: var(--bg-alt);
   color: var(--ink);
 }
-
-/* Light mode: solid color-psychology tints for the 4 main lookup sections.
-   Dark mode keeps the existing neutral card styling untouched. */
 .card-picker {
-  background: #fff7e6;
-  border-color: #fde3a7;
+  background: #e6f5f3;
+  border-color: #b8e3dd;
 }
 .card-stats {
-  background: #fff1e0;
-  border-color: #fdd9a0;
+  background: #fdeceb;
+  border-color: #f5c4c1;
 }
 .card-schools {
-  background: #fefbe9;
-  border-color: #fde68a;
+  background: #eef6ec;
+  border-color: #c9e4c2;
 }
 .card-flag {
-  background: #fff7ed;
-  border-color: #fed7aa;
+  background: #fff3e0;
+  border-color: #ffd699;
 }
 [data-theme="dark"] .card-picker,
 [data-theme="dark"] .card-stats,
@@ -151,19 +143,17 @@ select option {
   background: var(--bg-alt);
   border-color: var(--line);
 }
-/* Live/amber pulse for real-time activity indicators */
 @keyframes pulseLive {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(245, 158, 11, 0.5);
+    box-shadow: 0 0 0 0 rgba(79, 209, 197, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(245, 158, 11, 0);
+    box-shadow: 0 0 0 6px rgba(79, 209, 197, 0);
   }
 }
 .pulse-live {
   animation: pulseLive 1.8s ease-in-out infinite;
 }
-/* Success checkmark animation (used by SuccessCard) */
 @keyframes strokeAnim {
   100% {
     stroke-dashoffset: 0;
