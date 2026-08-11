@@ -2,37 +2,37 @@
 :root {
   color-scheme: light;
   --transition-theme: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
-  --trust: #c1440e;
-  --primary: #c1440e;
-  --primary-dark: #8f3209;
-  --accent: #c1440e;
-  --alert: #a4161a;
-  --ink: #1c1a17;
-  --ink-soft: #6b6459;
-  --bg: #faf6ef;
-  --bg-alt: #f0e9dc;
-  --line: #ddd2bd;
-  --card-shadow: 0 1px 3px rgba(28, 26, 23, 0.08), 0 1px 2px rgba(28, 26, 23, 0.05);
-  --card-shadow-hover: 0 16px 28px rgba(28, 26, 23, 0.16), 0 0 0 1px var(--line);
+  --trust: #6b7a4f;
+  --primary: #6b7a4f;
+  --primary-dark: #4d5938;
+  --accent: #7a2e2e;
+  --alert: #7a2e2e;
+  --ink: #1a1a1a;
+  --ink-soft: #6b665c;
+  --bg: #f9f8f3;
+  --bg-alt: #f0efed;
+  --line: #ddd8ca;
+  --card-shadow: 0 1px 3px rgba(26, 26, 26, 0.07), 0 1px 2px rgba(26, 26, 26, 0.04);
+  --card-shadow-hover: 0 16px 28px rgba(26, 26, 26, 0.14), 0 0 0 1px var(--line);
 }
 [data-theme="dark"] {
   color-scheme: dark;
-  --trust: #e2683a;
-  --primary: #e2683a;
-  --primary-dark: #c1440e;
-  --accent: #e2683a;
-  --alert: #e0525a;
-  --ink: #f2ede2;
-  --ink-soft: #a89f8d;
-  --bg: #111010;
-  --bg-alt: #1a1816;
-  --line: #322e28;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(226, 104, 58, 0.06);
-  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(226, 104, 58, 0.18);
+  --trust: #97a878;
+  --primary: #97a878;
+  --primary-dark: #6b7a4f;
+  --accent: #b5595a;
+  --alert: #c56d6e;
+  --ink: #f3f1e9;
+  --ink-soft: #a8a291;
+  --bg: #16150f;
+  --bg-alt: #201e17;
+  --line: #34311f;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 0 0 1px rgba(151, 168, 120, 0.06);
+  --card-shadow-hover: 0 16px 28px rgba(0, 0, 0, 0.45), 0 0 0 1px rgba(151, 168, 120, 0.18);
 }
 body {
-  background: var(--bg, #faf6ef);
-  color: var(--ink, #1c1a17);
+  background: var(--bg, #f9f8f3);
+  color: var(--ink, #1a1a1a);
   transition: var(--transition-theme);
 }
 .card {
@@ -89,7 +89,7 @@ body {
 }
 .btn:hover {
   filter: brightness(1.08);
-  box-shadow: 0 8px 18px rgba(28, 26, 23, 0.18);
+  box-shadow: 0 8px 18px rgba(26, 26, 26, 0.15);
   transform: translateY(-1px);
 }
 .btn:active {
@@ -103,10 +103,10 @@ body {
 }
 @keyframes pulseGlow {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(164, 22, 26, 0.3);
+    box-shadow: 0 0 0 0 rgba(122, 46, 46, 0.3);
   }
   50% {
-    box-shadow: 0 0 0 7px rgba(164, 22, 26, 0);
+    box-shadow: 0 0 0 7px rgba(122, 46, 46, 0);
   }
 }
 .pulse-alert {
@@ -120,18 +120,9 @@ select option {
   background: var(--bg-alt);
   color: var(--ink);
 }
-.card-picker {
-  background: var(--bg-alt);
-  border-color: var(--line);
-}
-.card-stats {
-  background: var(--bg-alt);
-  border-color: var(--line);
-}
-.card-schools {
-  background: var(--bg-alt);
-  border-color: var(--line);
-}
+.card-picker,
+.card-stats,
+.card-schools,
 .card-flag {
   background: var(--bg-alt);
   border-color: var(--line);
@@ -145,10 +136,10 @@ select option {
 }
 @keyframes pulseLive {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(193, 68, 14, 0.5);
+    box-shadow: 0 0 0 0 rgba(107, 122, 79, 0.5);
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(193, 68, 14, 0);
+    box-shadow: 0 0 0 6px rgba(107, 122, 79, 0);
   }
 }
 .pulse-live {
