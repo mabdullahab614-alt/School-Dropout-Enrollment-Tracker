@@ -1,6 +1,6 @@
 <div align="center">
 
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0c,40:0f2417,100:1f9d6b&height=200&section=header&text=Roll%20Call&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=School%20Dropout%20%26%20Enrollment%20Tracker%20for%20Pakistan&descAlignY=58&descSize=16&descColor=c9f7de" width="100%" alt="Roll Call banner"/>
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0a0a0c,40:0f2417,100:1f9d6b&height=200&section=header&text=Roll%20Call&fontSize=52&fontColor=ffffff&animation=fadeIn&fontAlignY=38&desc=School%20Dropout%20and%20Enrollment%20Tracker%20for%20Pakistan&descAlignY=58&descSize=16&descColor=c9f7de" width="100%" alt="Roll Call banner"/>
 
 <br/>
 
@@ -145,7 +145,7 @@ Pakistan, enroll child Pakistan, Article 25-A education crisis, out-of-school ch
 
 <div align="center">
 
-<img src="https://skillicons.dev/icons?i=nextjs,typescript,tailwind,supabase,vercel" alt="Next.js, TypeScript, Tailwind, Supabase, Vercel"/>
+<img src="https://skillicons.dev/icons?i=nextjs,ts,tailwind,supabase,vercel" alt="Next.js, TypeScript, Tailwind, Supabase, Vercel"/>
 
 </div>
 
